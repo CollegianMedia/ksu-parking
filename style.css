@@ -40,6 +40,13 @@ body {
 	background: url(ksu_wordmark.png);
  }
  
+ div.alert {
+	 font-style: italic;
+	 font-size: 1.5em;
+	 font-weight: bold;
+	 font-color: #CC0000;
+ }
+ 
  @media only screen and (-webkit-min-device-pixel-ratio: 2),  (min-resolution: 192dpi) {
 	 div#logo {
 		 background: url(ksu_wordmark@2x.png);
