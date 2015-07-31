@@ -1,48 +1,53 @@
 body {
 	text-align: center;
 }
- h1, h2, h3, p {
-	 font-family: 'Myriad Pro', 'PT Sans', sans-serif;
- }
+
+h1, h2, h3, p {
+	font-family: 'Myriad Pro', 'PT Sans', sans-serif;
+}
+
+img {
+	max-width: 100%;
+}
  
- img {
-	 max-width: 100%;
- }
+p.status {
+	font-style: italic;
+	font-size: 1.25em;
+	font-weight: bold;
+}
+
+p.status {
+	text-transform: capitalize;
+}
  
- p.status {
-	 font-style: italic;
-	 font-size: 1.25em;
-	 font-weight: bold;
- }
+div.status-full {
+	background-color: #FF6666;
+}
+
+div.status-open {
+	background-color: #99FF99;
+}
  
- div.status-full {
-	 background-color: #FF6666;
- }
- 
- div.status-open {
-	 background-color: #99FF99;
- }
- 
- div.status-unknown {
-	 background-color: #FFFF99;
- }
- 
- div.status-container {
-	 padding: 10px;
-	 margin: 5px;
- }
- 
- div#logo {
-    margin-left: auto;
-    margin-right: auto;
+div.status-unknown {
+	background-color: #FFFF99;
+}
+
+div.status-container {
+	padding: 10px;
+	margin: 5px;
+}
+
+div#logo {
+	margin-left: auto;
+	margin-right: auto;
 	max-width: 320px;
- }
- 
- p.alert {
-	 font-style: italic;
-	 font-weight: bold;
-	 color: #CC0000;
- }
+}
+
+p.alert {
+	font-style: italic;
+	font-weight: bold;
+	color: #CC0000;
+}
 
 p.last-checked {
 	font-style: italic;
