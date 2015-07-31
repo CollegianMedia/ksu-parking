@@ -43,3 +43,7 @@ body {
 	 font-weight: bold;
 	 color: #CC0000;
  }
+
+p.last-checked {
+	font-style: italic;
+}
