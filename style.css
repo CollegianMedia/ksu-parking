@@ -1,0 +1,33 @@
+body {
+	text-align: center;
+}
+ h1, h2, h3, p {
+	 font-family: 'Myriad Pro', 'PT Sans', sans-serif;
+ }
+ 
+ img {
+	 max-width: 100%;
+ }
+ 
+ p.status {
+	 font-style: italic;
+	 font-size: 1.25em;
+	 font-weight: bold;
+ }
+ 
+ div.status-full {
+	 background-color: #FF6666;
+ }
+ 
+ div.status-open {
+	 background-color: #99FF99;
+ }
+ 
+ div.status-unknown {
+	 background-color: #FFFF99;
+ }
+ 
+ div.status-container {
+	 padding: 15px;
+	 margin: 5px;
+ }
