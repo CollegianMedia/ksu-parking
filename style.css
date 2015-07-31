@@ -1,13 +1,32 @@
 body {
 	text-align: center;
+	margin: 0px;
+	display: table;
+	position: absolute;
+	height: 100%;
+	width: 100%;
 }
 
-h1, h2, h3, p {
+.middle {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+h1, h2, h3, h4, p {
 	font-family: 'Myriad Pro', 'PT Sans', sans-serif;
+	margin: 0px;
+}
+
+h2 {
+	font-size: 1.43em;
+}
+
+.title, .broughtby {
+	margin: .25em;
 }
 
 img {
-	max-width: 100%;
+	max-width: 90%;
 }
  
 p.status {
@@ -34,12 +53,13 @@ div.status-unknown {
 
 div.status-container {
 	padding: 10px;
-	margin: 5px;
+	margin-bottom: 5px;
 }
 
 div#logo {
 	margin-left: auto;
 	margin-right: auto;
+	margin-bottom: 10px;
 	max-width: 320px;
 }
 
@@ -47,8 +67,18 @@ p.alert {
 	font-style: italic;
 	font-weight: bold;
 	color: #CC0000;
+	margin-left: 10px;
+	margin-right: 10px;
 }
 
 p.last-checked {
 	font-style: italic;
+}
+
+.last-checked, .copyright {
+	margin-top: 5px;
+}
+
+p.copyright {
+	font-size: .75em;
 }
