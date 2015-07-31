@@ -33,11 +33,9 @@ body {
  }
  
  div#logo {
-	width: 320px;
-    height: 74px;
     margin-left: auto;
     margin-right: auto;
-	background: url(ksu_wordmark.png);
+	max-width: 320px;
  }
  
  p.alert {
