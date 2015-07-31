@@ -61,10 +61,18 @@ googletag.cmd.push(function() { googletag.display('div-gpt-ad-1438300940210-0');
 </script>
 </div>
 <script>
-jQuery('.alert').html("There was an error contacting K-State's server. Please check again later.");
-//jQuery('.status-student').removeClass('status-unknown');
-//jQuery('p.status-student').html('Open');
-//jQuery('.status-student').addClass('status-open');
+//jQuery('.alert').html("There was an error contacting K-State's server. Please check again later.");
+jQuery('.status-student').removeClass('status-unknown');
+jQuery('p.status-student').html('Open');
+jQuery('.status-student').addClass('status-open');
+
+jQuery('.status-faculty').removeClass('status-unknown');
+jQuery('p.status-faculty').html('Open');
+jQuery('.status-faculty').addClass('status-open');
+
+jQuery('.status-public').removeClass('status-unknown');
+jQuery('p.status-public').html('Open');
+jQuery('.status-public').addClass('status-open');
 </script>
 	</body>
 </html>
