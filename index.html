@@ -5,6 +5,7 @@
 		<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,700italic,400italic' rel='stylesheet' type='text/css'>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="refresh" content="120">
 <script type='text/javascript'>
   var googletag = googletag || {};
   googletag.cmd = googletag.cmd || [];
@@ -60,11 +61,27 @@
 googletag.cmd.push(function() { googletag.display('div-gpt-ad-1438300940210-0'); });
 </script>
 </div>
+<p class="last-checked">Last checked 0 seconds ago.</p>
 <script>
 jQuery('.alert').html("There was an error contacting K-State's server. Please check again later.");
 //jQuery('.status-student').removeClass('status-unknown');
 //jQuery('p.status-student').html('Open');
 //jQuery('.status-student').addClass('status-open');
+</script>
+<script>
+var seconds = 0;
+
+function add() {
+    seconds++;
+    
+    $('.last-checked').text('Last checked ' + seconds + ' seconds ago.');
+
+    timer();
+}
+function timer() {
+    t = setTimeout(add, 1000);
+}
+timer();
 </script>
 	</body>
 </html>
