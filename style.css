@@ -7,11 +7,21 @@ body {
 	width: 100%;
 }
 
-.middle {
-	display: table-cell;
-	vertical-align: middle;
+.top {
+	display: table-row;
+	vertical-align: top;
+	height: 120px;
 }
-
+.middle {
+	display: table-row;
+	vertical-align: middle;
+	height: 280px;
+}
+.bottom {
+	display: table-row;
+	vertical-align: bottom;
+	height: 20px;
+}
 h1, h2, h3, h4, p {
 	font-family: 'Myriad Pro', 'PT Sans', sans-serif;
 	margin: 0px;
