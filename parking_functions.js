@@ -34,8 +34,8 @@ function check_status() {
 		if (typeof theStatus.error != 'undefined') {
 			parking_alert(theStatus.error);
 		}
-		set_status(student,theStatus.student);
-		set_status(faculty,theStatus.faculty);
-		set_status(public,theStatus.public);
+		set_status("student",theStatus.student);
+		set_status("faculty",theStatus.faculty);
+		set_status("public",theStatus.public);
 	});
 }
