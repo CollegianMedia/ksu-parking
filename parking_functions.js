@@ -27,3 +27,15 @@ function remove_status(status_location) {
 function parking_alert(the_alert) {
 	jQuery('.alert').html(the_alert);
 }
+
+function check_status() {
+	jQuery.getJSON("http://people.cis.ksu.edu/~walkerg/parking.php", function(status) {
+		var theStatus = jQuery.parseJSON(status);
+		if (typeof theStatus.error != 'undefined') {
+			parking_alert(theStatus.error);
+		}
+		set_status(student,theStatus.student);
+		set_status(faculty,theStatus.faculty);
+		set_status(public,theStatus.public);
+	});
+}
