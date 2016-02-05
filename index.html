@@ -6,7 +6,6 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 		<script src="parking_functions.js"></script>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta http-equiv="refresh" content="120">
 <script type='text/javascript'>
   var googletag = googletag || {};
   googletag.cmd = googletag.cmd || [];
@@ -45,7 +44,7 @@
 			<h2 class="title">K-State Parking Garage Status</h2>
 			<h4 class="broughtby">Brought to you by</h4>
 			<div id="logo"><img src="http://photos.collegianmedia.com/photos/i-9dN3Qrp/0/L/i-9dN3Qrp-L.png" width="100%" alt="The Collegian"></div>
-			<p class="alert"></p>
+			<p class="alert">Unable to contact server.</p>
 		</div>
 		<div class="middle">
 			<div class="status-container status-student status-unknown">
@@ -66,17 +65,17 @@
 googletag.cmd.push(function() { googletag.display('div-gpt-ad-1438300940210-0'); });
 </script>
 </div>
+			<div class="refresh-button">
+				<button onclick="">Re-check Status</button>
+			</div>
 		</div>
 		<div class="bottom">
-			<p class="last-checked">Last checked 0 seconds ago.</p>
+			<p class="last-checked">Last checked 1 seconds ago.</p>
 			<p class="copyright">&copy; 2015 Collegian Media Group | <a href="http://www.collegianmedia.com/privacy-policy">Privacy Policy</a></p>
 		</div>
 <script>
 check_status();
-</script>
-<script>
-var seconds = 0;
-
+var seconds = 1;
 function add() {
     seconds++;
     if (seconds == 1) {
@@ -86,9 +85,18 @@ function add() {
     }
     timer();
 }
+function recheck() {
+	check_status();
+	seconds=0;
+	reloadTimer();
+}
 function timer() {
     t = setTimeout(add, 1000);
 }
+function reloadTimer() {
+    recheckTimer = setTimeout(recheck, 10000);
+}
+reloadTimer();
 timer();
 </script>
 	</body>

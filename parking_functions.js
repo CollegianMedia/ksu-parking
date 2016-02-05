@@ -32,6 +32,8 @@ function check_status() {
 	jQuery.getJSON("http://ron.spub.ksu.edu/", function(theStatus) {
 		if (typeof theStatus.error != 'undefined') {
 			parking_alert(theStatus.error);
+		} else {
+			parking_alert("");
 		}
 		set_status("student",theStatus.student);
 		set_status("faculty",theStatus.faculty);
