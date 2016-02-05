@@ -29,7 +29,7 @@ function parking_alert(the_alert) {
 }
 
 function check_status() {
-	jQuery.getJSON("http://people.cis.ksu.edu/~walkerg/parking.php", function(theStatus) {
+	jQuery.getJSON("http://ron.spub.ksu.edu/", function(theStatus) {
 		if (typeof theStatus.error != 'undefined') {
 			parking_alert(theStatus.error);
 		}
