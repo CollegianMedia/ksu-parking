@@ -29,7 +29,7 @@ function parking_alert(the_alert) {
 }
 
 function check_status() {
-	jQuery.getJSON("http://ron.spub.ksu.edu/", function(theStatus) {
+	jQuery.getJSON("http://www.kstatecollegian.com/parkingCheck.php", function(theStatus) {
 		if (typeof theStatus.error != 'undefined') {
 			parking_alert(theStatus.error);
 		} else {
