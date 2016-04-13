@@ -69,7 +69,7 @@ googletag.cmd.push(function() { googletag.display('div-gpt-ad-1438300940210-0');
 			<div class="refresh-button">
 				<button class="button" onclick="javascript:check_status();javascript:seconds=0;">Re-check Status</button>
 			</div>
-			<div class="prevent-sleep">
+			<div id="prevent-sleep">
 			<br><h4 class="onoffswitch-text">Prevent my device from sleeping</h4>
 				<div class="onoffswitch">
     				<input type="checkbox" name="preventsleep" class="onoffswitch-checkbox" id="preventsleep">
@@ -114,7 +114,7 @@ timer();
 </script>
 <script>
 var noSleep = new NoSleep();
-$('#preventsleep').mousedown(function() {
+$('#prevent-sleep').mousedown(function() {
 	if (!$(this).is(':checked')) {
 		noSleep.enable();
 		console.log("NoSleep enabled.");
@@ -123,7 +123,7 @@ $('#preventsleep').mousedown(function() {
 		console.log("NoSleep disabled.");
 	}
 });
-$('#preventsleep').bind("touchstart",function(e) {
+$('#prevent-sleep').bind("touchstart",function(e) {
 	if (!$(this).is(':checked')) {
 		noSleep.enable();
 		console.log("NoSleep enabled.");
