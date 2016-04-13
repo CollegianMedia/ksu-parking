@@ -70,7 +70,7 @@ googletag.cmd.push(function() { googletag.display('div-gpt-ad-1438300940210-0');
 			</div>
 		</div>
 		<div class="bottom">
-			<p class="last-checked">Last checked 1 seconds ago.</p>
+			<p class="last-checked">Last checked 1 second ago.</p>
 			<p class="copyright">&copy; 2016 Collegian Media Group | <a href="http://www.collegianmedia.com/privacy-policy">Privacy Policy</a></p>
 		</div>
 <script>
@@ -80,6 +80,8 @@ function add() {
     seconds++;
     if (seconds == 1) {
     $('.last-checked').text('Last checked ' + seconds + ' second ago.');
+    } else if (seconds == 10) {
+    $('.last-checked').text('Checking...');
     } else {
     $('.last-checked').text('Last checked ' + seconds + ' seconds ago.');
     }

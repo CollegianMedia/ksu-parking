@@ -2,12 +2,9 @@
  *	KSU Parking Garage Status Page
  *	http://www.collegianmedia.com/
  *	
- *  parking_functions.js
+ *	parking_functions.js
  *	
- *	Date: 2015-07-31
  */
-
-
 
 // Function for setting status
 function set_status(status_location, the_status) {
