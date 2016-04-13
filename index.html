@@ -106,6 +106,7 @@ reloadTimer();
 timer();
 </script>
 <script>
+var noSleep = new NoSleep();
 $('#preventsleep').mousedown(function() {
 	if (!$(this).is(':checked')) {
 		noSleep.enable();
