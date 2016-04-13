@@ -115,7 +115,7 @@ timer();
 <script>
 var noSleep = new NoSleep();
 $('#prevent-sleep').mousedown(function() {
-	if (!$(this).is(':checked')) {
+	if (!$('#preventsleep').is(':checked')) {
 		noSleep.enable();
 		console.log("NoSleep enabled.");
 	} else {
@@ -124,7 +124,7 @@ $('#prevent-sleep').mousedown(function() {
 	}
 });
 $('#prevent-sleep').bind("touchstart",function(e) {
-	if (!$(this).is(':checked')) {
+	if (!$('#preventsleep').is(':checked')) {
 		noSleep.enable();
 		console.log("NoSleep enabled.");
 	} else {
