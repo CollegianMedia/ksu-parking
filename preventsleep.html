@@ -1,0 +1,41 @@
+
+		<script src="NoSleep.min.js"></script>
+
+
+<div id="prevent-sleep">
+			<br><h4 class="onoffswitch-text">Prevent my device from sleeping</h4>
+				<div class="onoffswitch">
+    				<input type="checkbox" name="preventsleep" class="onoffswitch-checkbox" id="preventsleep">
+    				<label class="onoffswitch-label" for="preventsleep">
+        				<span class="onoffswitch-inner"></span>
+        				<span class="onoffswitch-switch"></span>
+   					</label>
+				</div>
+			</div> 
+			
+			
+			<script>
+var noSleep = new NoSleep();
+$('#prevent-sleep').mousedown(function() {
+	setTimeout(function(){
+		if ($('#preventsleep').is(':checked')) {
+			noSleep.enable();
+			console.log("NoSleep enabled.");
+		} else {
+			noSleep.disable();
+			console.log("NoSleep disabled.");
+		}
+    }, 1000);
+});
+$('#prevent-sleep').bind("touchstart",function(e) {
+	setTimeout(function(){
+		if ($('#preventsleep').is(':checked')) {
+			noSleep.enable();
+			console.log("NoSleep enabled.");
+		} else {
+			noSleep.disable();
+			console.log("NoSleep disabled.");
+		}
+    }, 1000);
+});
+</script>

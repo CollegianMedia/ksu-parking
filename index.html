@@ -5,7 +5,6 @@
 		<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,700italic,400italic' rel='stylesheet' type='text/css'>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 		<script src="parking_functions.js"></script>
-		<script src="NoSleep.min.js"></script>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 <script type='text/javascript'>
   var googletag = googletag || {};
@@ -43,6 +42,8 @@
 	<body>
 		<div class="top">
 			<h2 class="title">K-State Parking Garage Status</h2>
+			<h4 class="broughtby">Brought to you by</h4>
+			<div id="logo"><img src="http://photos.collegianmedia.com/photos/i-9dN3Qrp/0/L/i-9dN3Qrp-L.png" width="100%" alt="The Collegian"></div>
 			<p class="alert">Unable to contact server.</p>
 			<div class="status-container status-student status-Unknown">
 				<h3 class="status-type status-student">Student Parking</h3>
@@ -57,80 +58,19 @@
 				<p class="status status-public status-unknown">Unknown</p>
 			</div>
 			<!-- /17107439/parking-ad -->
-<div id='div-gpt-ad-1438300940210-0' style='height:50px; width:320px; margin-left:auto; margin-right:auto;'>
-<script type='text/javascript'>
-googletag.cmd.push(function() { googletag.display('div-gpt-ad-1438300940210-0'); });
-</script>
-</div>
+			<div id='div-gpt-ad-1438300940210-0' style='height:50px; width:320px; margin-left:auto; margin-right:auto;'>
+				<script type='text/javascript'>
+					googletag.cmd.push(function() { googletag.display('div-gpt-ad-1438300940210-0'); });
+				</script>
+			</div>
 			<div class="refresh-button">
 				<button class="button" onclick="javascript:check_status();javascript:seconds=0;">Re-check Status</button>
 			</div>
-			<div id="prevent-sleep">
-			<br><h4 class="onoffswitch-text">Prevent my device from sleeping</h4>
-				<div class="onoffswitch">
-    				<input type="checkbox" name="preventsleep" class="onoffswitch-checkbox" id="preventsleep">
-    				<label class="onoffswitch-label" for="preventsleep">
-        				<span class="onoffswitch-inner"></span>
-        				<span class="onoffswitch-switch"></span>
-   					</label>
-				</div>
-			</div> 
+			
 		</div>
 		<div class="bottom">
-			<p class="last-checked">Last checked 1 second ago.</p>
+			<p class="last-checked">Loading...</p>
 		</div>
-<script>
-check_status();
-var seconds = 1;
-function add() {
-    seconds++;
-    if (seconds == 1) {
-    $('.last-checked').text('Last checked ' + seconds + ' second ago.');
-    } else if (seconds == 10) {
-    $('.last-checked').text('Checking...');
-    } else {
-    $('.last-checked').text('Last checked ' + seconds + ' seconds ago.');
-    }
-    timer();
-}
-function recheck() {
-	check_status();
-	seconds=0;
-	reloadTimer();
-}
-function timer() {
-    t = setTimeout(add, 1000);
-}
-function reloadTimer() {
-    recheckTimer = setTimeout(recheck, 10000);
-}
-reloadTimer();
-timer();
-</script>
-<script>
-var noSleep = new NoSleep();
-$('#prevent-sleep').mousedown(function() {
-	setTimeout(function(){
-		if ($('#preventsleep').is(':checked')) {
-			noSleep.enable();
-			console.log("NoSleep enabled.");
-		} else {
-			noSleep.disable();
-			console.log("NoSleep disabled.");
-		}
-    }, 1000);
-});
-$('#prevent-sleep').bind("touchstart",function(e) {
-	setTimeout(function(){
-		if ($('#preventsleep').is(':checked')) {
-			noSleep.enable();
-			console.log("NoSleep enabled.");
-		} else {
-			noSleep.disable();
-			console.log("NoSleep disabled.");
-		}
-    }, 1000);
-});
-</script>
+		<script type="text/javascript" src="timer.js"></script>
 	</body>
 </html>
