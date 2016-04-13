@@ -114,6 +114,13 @@ $('#preventsleep').mousedown(function() {
 		noSleep.disable();
 	}
 });
+$('#preventsleep').bind("touchstart",function(e) {
+	if (!$(this).is(':checked')) {
+		noSleep.enable();
+	} else {
+		noSleep.disable();
+	}
+});
 </script>
 	</body>
 </html>
