@@ -15,9 +15,9 @@ function set_status(status_location, the_status) {
 	
 // Function to remove all statuses
 function remove_status(status_location) {
-	jQuery('.status-' + status_location).removeClass('status-unknown');
-	jQuery('.status-' + status_location).removeClass('status-open');
-	jQuery('.status-' + status_location).removeClass('status-full');
+	jQuery('.status-' + status_location).removeClass('status-Unknown');
+	jQuery('.status-' + status_location).removeClass('status-Open');
+	jQuery('.status-' + status_location).removeClass('status-Full');
 }
 
 // Function for alerts
