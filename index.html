@@ -5,6 +5,7 @@
 		<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,700italic,400italic' rel='stylesheet' type='text/css'>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 		<script src="parking_functions.js"></script>
+		<script src="NoSleep.min.js"></script>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 <script type='text/javascript'>
   var googletag = googletag || {};
@@ -68,6 +69,9 @@ googletag.cmd.push(function() { googletag.display('div-gpt-ad-1438300940210-0');
 			<div class="refresh-button">
 				<button class="button" onclick="javascript:check_status();javascript:seconds=0;">Re-check Status</button>
 			</div>
+			<div class="prevent-sleep">
+				<p><br><input type="checkbox" name="preventsleep" id="preventsleep" value="enabled"> Prevent my device from sleeping</p>
+			</div> 
 		</div>
 		<div class="bottom">
 			<p class="last-checked">Last checked 1 second ago.</p>
@@ -100,6 +104,15 @@ function reloadTimer() {
 }
 reloadTimer();
 timer();
+</script>
+<script>
+$('#preventsleep').mousedown(function() {
+	if (!$(this).is(':checked')) {
+		noSleep.enable();
+	} else {
+		noSleep.disable();
+	}
+});
 </script>
 	</body>
 </html>
