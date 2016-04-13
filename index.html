@@ -115,24 +115,26 @@ timer();
 <script>
 var noSleep = new NoSleep();
 $('#prevent-sleep').mousedown(function() {
-	sleep(1000);
-	if ($('#preventsleep').is(':checked')) {
-		noSleep.enable();
-		console.log("NoSleep enabled.");
-	} else {
-		noSleep.disable();
-		console.log("NoSleep disabled.");
-	}
+	setTimeout(function(){
+		if ($('#preventsleep').is(':checked')) {
+			noSleep.enable();
+			console.log("NoSleep enabled.");
+		} else {
+			noSleep.disable();
+			console.log("NoSleep disabled.");
+		}
+    }, 1000);
 });
 $('#prevent-sleep').bind("touchstart",function(e) {
-	sleep(1000);
-	if ($('#preventsleep').is(':checked')) {
-		noSleep.enable();
-		console.log("NoSleep enabled.");
-	} else {
-		noSleep.disable();
-		console.log("NoSleep disabled.");
-	}
+	setTimeout(function(){
+		if ($('#preventsleep').is(':checked')) {
+			noSleep.enable();
+			console.log("NoSleep enabled.");
+		} else {
+			noSleep.disable();
+			console.log("NoSleep disabled.");
+		}
+    }, 1000);
 });
 </script>
 	</body>
