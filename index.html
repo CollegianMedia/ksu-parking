@@ -40,32 +40,51 @@
 </script>
 	</head>
 	<body>
-		<div class="top">
+		<div class="list-element title">
 			<h2 class="title">K-State Parking Garage Status</h2>
 			<h4 class="broughtby">Brought to you by</h4>
 			<div id="logo"><img src="http://photos.collegianmedia.com/photos/i-9dN3Qrp/0/L/i-9dN3Qrp-L.png" width="100%" alt="The Collegian"></div>
-			<p class="alert">Unable to contact server.</p>
-			<div class="status-container status-student status-Unknown">
-				<h3 class="status-type status-student">Student Parking</h3>
-				<p class="status status-student status-unknown">Unknown</p>
+			
+			<p class="status alert">Unable to contact server.</p>
+		<br>
+		</div>
+		<div class="list-element status-student status-Unknown">
+			<div class="list-left">
+				<h1 class="list-label">S</h1>
 			</div>
-			<div class="status-container status-faculty status-Unknown">
-				<h3 class="status-type status-faculty">Faculty/Staff Parking</h3>
-				<p class="status status-faculty status-unknown">Unknown</p>
+			<div class="list-right">
+				<h2 class="title">Student Parking</h2>
+				<p class="status status-student">Unknown</p>
 			</div>
-			<div class="status-container status-public status-Unknown">
-				<h3 class="status-type status-public">Public Parking</h3>
-				<p class="status status-public status-unknown">Unknown</p>
+		</div>
+		<div class="list-element status-faculty status-Unknown">
+			<div class="list-left">
+				<h1 class="list-label">F</h1>
 			</div>
-			<!-- /17107439/parking-ad -->
-			<div id='div-gpt-ad-1438300940210-0' style='height:50px; width:320px; margin-left:auto; margin-right:auto;'>
-				<script type='text/javascript'>
-					googletag.cmd.push(function() { googletag.display('div-gpt-ad-1438300940210-0'); });
-				</script>
+			<div class="list-right">
+				<h2 class="title">Faculty/Staff Parking</h2>
+				<p class="status status-faculty">Unknown</p>
 			</div>
-			<div class="refresh-button">
-				<button class="button" onclick="javascript:check_status();javascript:seconds=0;">Re-check Status</button>
+		</div>
+		<div class="list-element status-public status-Unknown">
+			<div class="list-left">
+				<h1 class="list-label">P</h1>
 			</div>
+			<div class="list-right">
+				<h2 class="title">Public Parking</h2>
+				<p class="status status-public">Unknown</p>
+			</div>
+		</div>
+
+		<!-- /17107439/parking-ad -->
+		<div id='div-gpt-ad-1438300940210-0' style='height:50px; width:320px; margin-left:auto; margin-right:auto;'>
+			<script type='text/javascript'>
+				googletag.cmd.push(function() { googletag.display('div-gpt-ad-1438300940210-0'); });
+			</script>
+		</div>
+		<div class="refresh-button">
+			<button class="button" onclick="javascript:check_status();javascript:seconds=0;">Re-check Status</button>
+		</div>
 			
 		</div>
 		<div class="bottom">

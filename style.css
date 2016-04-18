@@ -104,3 +104,27 @@ p.copyright {
     padding-right: 0;
     width: 100%;
 }
+
+.list-element {
+	width: 100%;
+	border-bottom: 2px solid #000;
+}
+.list-label {
+	font-size: 3em;
+}
+.list-left {
+	display: inline-block;
+	width: 15%;
+	vertical-align: middle;
+}
+.list-right {
+	display: inline-block;
+	width: 80%;
+	vertical-align: middle;
+	border-left: 2px solid #000;
+	min-height: 4em;
+	padding-top: 1em;
+}
+.status {
+	font-size: 1.25em;
+}
