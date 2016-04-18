@@ -71,21 +71,6 @@ p.last-checked {
 	margin-top: 5px;
 }
 
-.button {
-    background-color: #7F54A3;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    cursor: pointer;
-    padding-left: 0;
-    padding-right: 0;
-    width: 100%;
-}
-
 .list-element {
 	width: 100%;
 	border-bottom: 2px solid #000;
@@ -104,7 +89,7 @@ p.last-checked {
 	vertical-align: middle;
 	border-left: 2px solid #000;
 	min-height: 4em;
-	padding-top: 1em;
+	padding-top: .5em;
 }
 .status {
 	font-size: 1.25em;
