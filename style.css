@@ -7,21 +7,12 @@ body {
 	width: 100%;
 }
 
-.top {
-	display: table-row;
-	vertical-align: top;
-	height: 120px;
-}
-.middle {
-	display: table-row;
-	vertical-align: middle;
-	height: 280px;
-}
 .bottom {
 	display: table-row;
 	vertical-align: bottom;
 	height: 20px;
 }
+
 h1, h2, h3, h4, p {
 	font-family: 'Myriad Pro', 'PT Sans', sans-serif;
 	margin: 0px;
@@ -57,11 +48,6 @@ div.status-Unknown {
 	background-color: #FFFF99;
 }
 
-div.status-container {
-	padding: 10px;
-	margin-bottom: 5px;
-}
-
 div#logo {
 	margin-left: auto;
 	margin-right: auto;
@@ -81,12 +67,8 @@ p.last-checked {
 	font-style: italic;
 }
 
-.last-checked, .copyright {
+.last-checked {
 	margin-top: 5px;
-}
-
-p.copyright {
-	font-size: .75em;
 }
 
 .button {
