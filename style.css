@@ -45,15 +45,15 @@ p.status {
 	text-transform: capitalize;
 }
  
-div.status-full {
+div.status-Full {
 	background-color: #FF6666;
 }
 
-div.status-open {
+div.status-Open {
 	background-color: #99FF99;
 }
  
-div.status-unknown {
+div.status-Unknown {
 	background-color: #FFFF99;
 }
 
