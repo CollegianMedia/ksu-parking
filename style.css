@@ -101,4 +101,6 @@ img {
 	width:320px;
 	margin-left:auto;
 	margin-right:auto;
+	padding-top: 10px;
+	padding-bottom: 10px;
 }
