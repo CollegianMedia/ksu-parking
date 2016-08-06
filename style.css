@@ -6,71 +6,54 @@ body {
 	height: 100%;
 	width: 100%;
 }
-
 .bottom {
 	display: table-row;
 	vertical-align: bottom;
 	height: 20px;
 }
-
 h1, h2, h3, h4, p, a {
 	font-family: 'Roboto', sans-serif;
 	margin: 0px;
 }
-
 h2 {
 	font-size: 1.43em;
 }
-
 img {
 	max-width: 90%;
 }
- 
-p.status {
+.status {
 	font-style: italic;
 	font-size: 1.25em;
 	font-weight: bold;
-}
-
-p.status {
 	text-transform: capitalize;
 }
- 
-div.status-Full {
+.status-Full {
 	background-color: #FF6666;
 }
-
-div.status-Open {
+.status-Open {
 	background-color: #99FF99;
 }
- 
-div.status-Unknown {
+.status-Unknown {
 	background-color: #FFFF99;
 }
-
-div#logo {
+#logo {
 	margin-left: auto;
 	margin-right: auto;
-	margin-bottom: 10px;
-	max-width: 320px;
+	margin-top: 10px;
+	max-width: 200px;
 }
-
-p.alert {
+.alert {
 	font-style: italic;
 	font-weight: bold;
 	color: #CC0000;
 	margin-left: 10px;
 	margin-right: 10px;
+	padding-top: 10px;
 }
-
-p.last-checked {
-	font-style: italic;
-}
-
 .last-checked {
+	font-style: italic;
 	margin-top: 5px;
 }
-
 .list-element {
 	width: 100%;
 	border-bottom: 2px solid #000;
@@ -91,10 +74,6 @@ p.last-checked {
 	min-height: 4em;
 	padding-top: .5em;
 }
-.status {
-	font-size: 1.25em;
-}
-
 .button {
     background-color: #7F54A3;
     border: none;
@@ -108,4 +87,11 @@ p.last-checked {
     padding-left: 0;
     padding-right: 0;
     width: 100%;
+}
+#icon {
+    display: inline-block;
+    width: 50px;
+}
+.title {
+	display: inline-block;
 }
