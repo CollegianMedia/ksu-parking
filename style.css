@@ -49,6 +49,7 @@ img {
 	margin-left: 10px;
 	margin-right: 10px;
 	padding-top: 10px;
+	padding-bottom: 10px;
 }
 .last-checked {
 	font-style: italic;
@@ -94,4 +95,10 @@ img {
 }
 .title {
 	display: inline-block;
+}
+.ad {
+	height:50px;
+	width:320px;
+	margin-left:auto;
+	margin-right:auto;
 }
