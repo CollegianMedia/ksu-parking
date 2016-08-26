@@ -79,7 +79,7 @@ function clearColors(parkingType) {
  * Function to check the status using the API
  */
  function check_status() {
-	$.getJSON("http://kstatecollegian.com/parkingCheckNew.php", function(parkingData) {
+	$.getJSON("http://www.kstatecollegian.com/parkingCheckNew.php", function(parkingData) {
 		var facultyPercent = reverseData(parkingData.response.regions[0].contents[0].fields.percentuse.value);
 		var publicPercent = reverseData(parkingData.response.regions[0].contents[1].fields.percentuse.value);
 		var studentPercent = reverseData(parkingData.response.regions[0].contents[2].fields.percentuse.value);
