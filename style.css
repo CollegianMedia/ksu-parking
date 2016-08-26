@@ -92,6 +92,8 @@ img {
 #icon {
     display: inline-block;
     width: 50px;
+    vertical-align: top;
+    padding-top: 12px;
 }
 .title {
 	display: inline-block;
