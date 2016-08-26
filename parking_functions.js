@@ -6,86 +6,34 @@
  *	
  */
 
+// Function for setting status
+function set_status(status_location, the_status) {
+	remove_status(status_location);
+	jQuery('p.status-' + status_location).html(the_status);
+	jQuery('.status-' + status_location).addClass('status-' + the_status);
+}
+	
+// Function to remove all statuses
+function remove_status(status_location) {
+	jQuery('.status-' + status_location).removeClass('status-Unknown');
+	jQuery('.status-' + status_location).removeClass('status-Open');
+	jQuery('.status-' + status_location).removeClass('status-Full');
+}
 
-/*
- * Function for alerts
- */ 
+// Function for alerts
 function parking_alert(the_alert) {
 	jQuery('.alert').html(the_alert);
 }
 
-
-/*
- * Clean up the data if it is less than 8% or greater than 99%
- */
-function cleanData(theData) {
-	if (theData < 4) {
-		return 4;
-	}
-	if (theData > 99) {
-		return 100;
-	}
-	return theData;
-}
-
-/*
- * Reverse the Data to show number of spots available instead of number of spots taken.
- */
-function reverseData(theData) {
-	return (100 - cleanData(theData));
-}
-
-
-/*
- * Format the text representation of the data.
- */
-function formattedData(theData) {
-	if (theData > 95) {
-		return "> 95% of spots available";
-	}
-	if (theData < 1) {
-		return "No spots available"
-	}
-	return (theData + "% of spots available");
-}
-
-
-/*
- * Function to set the status bars
- */
-function setPercentage(parkingType, thePercentage) {
-	$('.' + parkingType + '-percentage').css('width', thePercentage + '%').removeClass('loading').removeClass('active').text("");
-	$('.status-' + parkingType + '-text').text(formattedData(thePercentage));
-	clearColors(parkingType);
-	if (thePercentage > 40) {
-		$('.' + parkingType + '-percentage').addClass('progress-bar-success');
-	} else if (thePercentage < 5 ) {
-		$('.' + parkingType + '-percentage').addClass('progress-bar-danger');
-	} else {
-		$('.' + parkingType + '-percentage').addClass('progress-bar-warning');
-	}
-}
-
-
-/*
- * Function to remove all color classes
- */
-function clearColors(parkingType) {
-	$('.' + parkingType + '-percentage').removeClass('progress-bar-success').removeClass('progress-bar-warning').removeClass('progress-bar-danger');
-}
-
-
-/*
- * Function to check the status using the API
- */
- function check_status() {
-	$.getJSON("https://m.k-state.edu/default/parking_garage/index.json?_object=kgoui_Rcontent_I0_Rcontent_I0&_object_include_html=1", function(parkingData) {
-		var facultyPercent = reverseData(parkingData.response.regions[0].contents[0].fields.percentuse.value);
-		var publicPercent = reverseData(parkingData.response.regions[0].contents[1].fields.percentuse.value);
-		var studentPercent = reverseData(parkingData.response.regions[0].contents[2].fields.percentuse.value);
-	
-		setPercentage('student',studentPercent);
-		setPercentage('public',publicPercent);
-		setPercentage('faculty',facultyPercent);
+function check_status() {
+	jQuery.getJSON("http://www.kstatecollegian.com/parkingCheck.php", function(theStatus) {
+		if (typeof theStatus.error != 'undefined') {
+			parking_alert(theStatus.error);
+		} else {
+			parking_alert("");
+		}
+		set_status("student",theStatus.student);
+		set_status("faculty",theStatus.faculty);
+		set_status("public",theStatus.public);
 	});
 }

@@ -1,26 +1,26 @@
 check_status();
-var seconds = 5;
-function subtract() {
-    seconds--;
+var seconds = 1;
+function add() {
+    seconds++;
     if (seconds == 1) {
-    $('.last-checked').text('Rechecking in ' + seconds + ' second.');
-    } else if (seconds == 0) {
+    $('.last-checked').text('Last checked ' + seconds + ' second ago.');
+    } else if (seconds == 10) {
     $('.last-checked').text('Checking...');
     } else {
-    $('.last-checked').text('Rechecking in ' + seconds + ' seconds.');
+    $('.last-checked').text('Last checked ' + seconds + ' seconds ago.');
     }
     timer();
 }
 function recheck() {
 	check_status();
-	seconds=6;
+	seconds=0;
 	reloadTimer();
 }
 function timer() {
-    t = setTimeout(subtract, 1000);
+    t = setTimeout(add, 1000);
 }
 function reloadTimer() {
-    recheckTimer = setTimeout(recheck, 6000);
+    recheckTimer = setTimeout(recheck, 10000);
 }
 reloadTimer();
 timer();
