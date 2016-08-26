@@ -97,7 +97,7 @@ img {
 }
 .title {
 	display: inline-block;
-	padding-top: 10px;
+	padding: 10px;
 }
 .ad {
 	width:320px;
