@@ -110,3 +110,10 @@ img {
 .loading {background-color: grey; width: 100%;}
 .progress {height: 30px; margin: 10px;}
 .progress-bar {line-height: 30px; font-size: 15px;}
+
+.background-warning {
+    background-color: #ffddbb;
+}
+.background-danger {
+    background-color: #ffeedd;
+}

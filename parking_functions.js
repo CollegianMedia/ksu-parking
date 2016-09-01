@@ -56,10 +56,14 @@ function setPercentage(parkingType, thePercentage, totalSpots) {
 	clearColors(parkingType);
 	if (thePercentage > 40) {
 		$('.' + parkingType + '-percentage').addClass('progress-bar-success');
+		$('.progress-' + parkingType).addClass('background-success');
+		
 	} else if (thePercentage < 5 ) {
 		$('.' + parkingType + '-percentage').addClass('progress-bar-danger');
+		$('.progress-' + parkingType).addClass('background-danger');
 	} else {
 		$('.' + parkingType + '-percentage').addClass('progress-bar-warning');
+		$('.progress-' + parkingType).addClass('background-warning');
 	}
 }
 
@@ -69,6 +73,7 @@ function setPercentage(parkingType, thePercentage, totalSpots) {
  */
 function clearColors(parkingType) {
 	$('.' + parkingType + '-percentage').removeClass('progress-bar-success').removeClass('progress-bar-warning').removeClass('progress-bar-danger');
+	$('.progress-' + parkingType).removeClass('background-success').removeClass('background-danger').removeClass('background-warning');
 }
 
 
