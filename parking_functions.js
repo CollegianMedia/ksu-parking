@@ -16,13 +16,13 @@ function parking_alert(the_alert) {
 
 
 /*
- * Clean up the data if it is less than 8% or greater than 99%
+ * Clean up the data if it is less than 1% or greater than 100%
  */
 function cleanData(theData) {
-	if (theData < 4) {
-		return 4;
+	if (theData < 1) {
+		return 1;
 	}
-	if (theData > 99) {
+	if (theData > 100) {
 		return 100;
 	}
 	return theData;
@@ -39,23 +39,20 @@ function reverseData(theData) {
 /*
  * Format the text representation of the data.
  */
-function formattedData(theData) {
-	if (theData > 95) {
-		return "> 95% of spots available";
-	}
+function formattedData(theData, totalSpots) {
 	if (theData < 1) {
 		return "No spots available"
 	}
-	return (theData + "% of spots available");
+	return ("Approximately " + Math.floor((theData / 100.0) * totalSpots) +	" spots available");
 }
 
 
 /*
  * Function to set the status bars
  */
-function setPercentage(parkingType, thePercentage) {
+function setPercentage(parkingType, thePercentage, totalSpots) {
 	$('.' + parkingType + '-percentage').css('width', thePercentage + '%').removeClass('loading').removeClass('active').text("");
-	$('.status-' + parkingType + '-text').text(formattedData(thePercentage));
+	$('.status-' + parkingType + '-text').text(formattedData(thePercentage, totalSpots));
 	clearColors(parkingType);
 	if (thePercentage > 40) {
 		$('.' + parkingType + '-percentage').addClass('progress-bar-success');
@@ -79,13 +76,19 @@ function clearColors(parkingType) {
  * Function to check the status using the API
  */
  function check_status() {
-	$.getJSON("http://www.kstatecollegian.com/parkingCheckNew.php", function(parkingData) {
-		var facultyPercent = reverseData(parkingData.response.regions[0].contents[0].fields.percentuse.value);
-		var publicPercent = reverseData(parkingData.response.regions[0].contents[1].fields.percentuse.value);
-		var studentPercent = reverseData(parkingData.response.regions[0].contents[2].fields.percentuse.value);
+	$.getJSON("https://m.k-state.edu/default/parking_garage/index.json?_object=kgoui_Rcontent_I0_Rcontent_I0&_object_include_html=1", function(parkingData) {
+		var publicPercent = reverseData(parkingData.response.regions[0].contents[0].fields.percentuse.value);
+		var studentPercent = reverseData(parkingData.response.regions[0].contents[1].fields.percentuse.value);
+		var facultyPercent = reverseData(parkingData.response.regions[0].contents[2].fields.percentuse.value);
 	
-		setPercentage('student',studentPercent);
-		setPercentage('public',publicPercent);
-		setPercentage('faculty',facultyPercent);
+		// According to https://www.k-state.edu/parking/garage/ there spots are as follows:
+		
+		var totalPublicSpots = 270;
+		var totalStudentSpots = 500;
+		var totalPreferredSpots = 400;
+	
+		setPercentage('student',studentPercent,totalStudentSpots);
+		setPercentage('public',publicPercent,totalPublicSpots);
+		setPercentage('faculty',facultyPercent,totalPreferredSpots);
 	});
 }
