@@ -82,9 +82,9 @@ function clearColors(parkingType) {
  */
  function check_status() {
 	$.getJSON("http://www.kstatecollegian.com/parkingCheckNew.php", function(parkingData) {
-		var publicPercent = reverseData(parkingData.response.regions[0].contents[0].fields.percentuse.value);
-		var studentPercent = reverseData(parkingData.response.regions[0].contents[1].fields.percentuse.value);
-		var facultyPercent = reverseData(parkingData.response.regions[0].contents[2].fields.percentuse.value);
+		var facultyPercent = reverseData(parkingData.response.regions[0].contents[0].fields.percentuse.value);
+		var publicPercent = reverseData(parkingData.response.regions[0].contents[1].fields.percentuse.value);
+		var studentPercent = reverseData(parkingData.response.regions[0].contents[2].fields.percentuse.value);
 	
 		// According to https://www.k-state.edu/parking/garage/ there spots are as follows:
 		
