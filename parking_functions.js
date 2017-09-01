@@ -81,7 +81,7 @@ function clearColors(parkingType) {
  * Function to check the status using the API
  */
  function check_status() {
-	$.getJSON("https://m.k-state.edu/default/parking_garage/index.json?sort=availability&_kgoui_object=kgoui_Rcontent_I0_Rcontent_I0&_kgoui_page_state=c85b63281f2071cc2e21aa0ab3d0d1ad&_kgoui_include_html=1&_kgoui_auto_refresh=1", function(parkingData) {
+	$.getJSON("https://m.k-state.edu/default/parking_garage/index.json?_kgoui_object=kgoui_Rcontent_I0_Rcontent_I0", function(parkingData) {
 		var facultyPercent = reverseData(parkingData.response.regions[0].contents[0].fields.percentuse.value);
 		var publicPercent = reverseData(parkingData.response.regions[0].contents[1].fields.percentuse.value);
 		var studentPercent = reverseData(parkingData.response.regions[0].contents[2].fields.percentuse.value);
