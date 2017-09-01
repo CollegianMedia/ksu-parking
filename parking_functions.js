@@ -1,15 +1,15 @@
 /*
  *	KSU Parking Garage Status Page
  *	http://www.collegianmedia.com/
- *	
+ *
  *	parking_functions.js
- *	
+ *
  */
 
 
 /*
  * Function for alerts
- */ 
+ */
 function parking_alert(the_alert) {
 	jQuery('.alert').html(the_alert);
 }
@@ -57,7 +57,7 @@ function setPercentage(parkingType, thePercentage, totalSpots) {
 	if (thePercentage > 40) {
 		$('.' + parkingType + '-percentage').addClass('progress-bar-success');
 		$('.progress-' + parkingType).addClass('background-success');
-		
+
 	} else if (thePercentage < 5 ) {
 		$('.' + parkingType + '-percentage').addClass('progress-bar-danger');
 		$('.progress-' + parkingType).addClass('background-danger');
@@ -81,17 +81,17 @@ function clearColors(parkingType) {
  * Function to check the status using the API
  */
  function check_status() {
-	$.getJSON("http://www.kstatecollegian.com/parkingCheckNew.php", function(parkingData) {
+	$.getJSON("https://m.k-state.edu/default/parking_garage/index.json?sort=availability&_kgoui_object=kgoui_Rcontent_I0_Rcontent_I0&_kgoui_page_state=c85b63281f2071cc2e21aa0ab3d0d1ad&_kgoui_include_html=1&_kgoui_auto_refresh=1", function(parkingData) {
 		var facultyPercent = reverseData(parkingData.response.regions[0].contents[0].fields.percentuse.value);
 		var publicPercent = reverseData(parkingData.response.regions[0].contents[1].fields.percentuse.value);
 		var studentPercent = reverseData(parkingData.response.regions[0].contents[2].fields.percentuse.value);
-	
+
 		// According to https://www.k-state.edu/parking/garage/ there spots are as follows:
-		
+
 		var totalPublicSpots = 270;
 		var totalStudentSpots = 500;
 		var totalPreferredSpots = 400;
-	
+
 		setPercentage('student',studentPercent,totalStudentSpots);
 		setPercentage('public',publicPercent,totalPublicSpots);
 		setPercentage('faculty',facultyPercent,totalPreferredSpots);
