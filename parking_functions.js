@@ -14,50 +14,37 @@ function parking_alert(the_alert) {
 	jQuery('.alert').html(the_alert);
 }
 
-
-/*
- * Clean up the data if it is less than 1% or greater than 100%
- */
-function cleanData(theData) {
-	if (theData < 1) {
-		return 1;
-	}
-	if (theData > 100) {
-		return 100;
-	}
-	return theData;
-}
-
-/*
- * Reverse the Data to show number of spots available instead of number of spots taken.
- */
-function reverseData(theData) {
-	return (100 - cleanData(theData));
-}
-
-
 /*
  * Format the text representation of the data.
  */
-function formattedData(theData, totalSpots) {
-	if (theData < 1) {
+function formattedData(spotsAvailable) {
+	if (spotsAvailable < 1) {
 		return "No spots available"
 	}
-	return ("Approximately " + Math.floor((theData / 100.0) * totalSpots) +	" spots available");
+	return ("Approximately " + spotsAvailable +	" spots available");
 }
 
 
 /*
  * Function to set the status bars
  */
-function setPercentage(parkingType, thePercentage, totalSpots) {
+function setPercentage(parkingType, spotsAvailable, totalSpots) {
+	// Figure out the percentage of available spots
+	thePercentage = (spotsAvailable / parseFloat(totalSpots)) *  100;
+
+	// Set the width of the bar based on the percentage
 	$('.' + parkingType + '-percentage').css('width', thePercentage + '%').removeClass('loading').removeClass('active').text("");
-	$('.status-' + parkingType + '-text').text(formattedData(thePercentage, totalSpots));
+
+	// Set the text on that bar
+	$('.status-' + parkingType + '-text').text(formattedData(spotsAvailable));
+
+	// Clear any colors from the bar
 	clearColors(parkingType);
+
+	// Set the color of the bar
 	if (thePercentage > 40) {
 		$('.' + parkingType + '-percentage').addClass('progress-bar-success');
 		$('.progress-' + parkingType).addClass('background-success');
-
 	} else if (thePercentage < 5 ) {
 		$('.' + parkingType + '-percentage').addClass('progress-bar-danger');
 		$('.progress-' + parkingType).addClass('background-danger');
@@ -76,24 +63,24 @@ function clearColors(parkingType) {
 	$('.progress-' + parkingType).removeClass('background-success').removeClass('background-danger').removeClass('background-warning');
 }
 
-
 /*
  * Function to check the status using the API
  */
- function check_status() {
-	$.getJSON("https://m.k-state.edu/default/parking_garage/index.json?_kgoui_object=kgoui_Rcontent_I0_Rcontent_I0", function(parkingData) {
-		var facultyPercent = reverseData(parkingData.response.regions[0].contents[0].fields.percentuse.value);
-		var publicPercent = reverseData(parkingData.response.regions[0].contents[1].fields.percentuse.value);
-		var studentPercent = reverseData(parkingData.response.regions[0].contents[2].fields.percentuse.value);
-
-		// According to https://www.k-state.edu/parking/garage/ there spots are as follows:
-
-		var totalPublicSpots = 270;
-		var totalStudentSpots = 500;
-		var totalPreferredSpots = 400;
-
-		setPercentage('student',studentPercent,totalStudentSpots);
-		setPercentage('public',publicPercent,totalPublicSpots);
-		setPercentage('faculty',facultyPercent,totalPreferredSpots);
+function check_status() {
+	$.getJSON("http://garage.ksucloud.net/resources?key=", function(parkingData) {
+		$.each(parkingData.resources, function(index, item) {
+			var setSelector;
+			if (item.name == "Public") {
+				setSelector = 'public';
+			} else if (item.name == "Students") {
+				setSelector = 'student';
+			} else if (item.name == "Faculty and Staff") {
+				setSelector = 'faculty';
+			} else {
+				parking_alert("Something seems to be wrong. Check back later.");
+				console.log("Item in JSON response not as expected");
+			}
+			setPercentage(setSelector, item.available, item.total);
+		});
 	});
 }
