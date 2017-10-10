@@ -67,7 +67,7 @@ function clearColors(parkingType) {
  * Function to check the status using the API
  */
 function check_status() {
-	$.getJSON("http://garage.ksucloud.net/resources?key=", function(parkingData) {
+	$.getJSON("http://garage.ksucloud.net/resources?key=6c88a6bb-4da0-4ffa-8b2c-1b11b8572ccf", function(parkingData) {
 		$.each(parkingData.resources, function(index, item) {
 			var setSelector;
 			if (item.name == "Public") {
